@@ -15,9 +15,15 @@ pipeline {
                 echo 'testing'
             }
         }
-        stage('Deploy') {
+        stage('Deploy - Staging') {
             steps {
-                echo 'deploy'
+                bash './deploy staging'
+                bash './run-smoke-tests'
+            }
+        }
+        stage('Deploy - Production') {
+            steps {
+                bash './deploy production'
             }
         }
     }
