@@ -17,13 +17,15 @@ pipeline {
         }
         stage('Deploy - Staging') {
             steps {
-                bash './deploy staging'
-                bash './run-smoke-tests'
+                sh 'chmod +x ./deploy.sh'
+                sh 'chmod +x ./run-smoke-tests.sh'
+                sh './deploy.sh staging'
+                sh './run-smoke-tests.sh'
             }
         }
         stage('Deploy - Production') {
             steps {
-                bash './deploy production'
+                sh './deploy.sh production'
             }
         }
     }
