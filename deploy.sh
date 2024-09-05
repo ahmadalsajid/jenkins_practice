@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-echo 'Deployment environment $1'
+echo "Deployment environment ${1}"
